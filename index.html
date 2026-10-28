@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,37 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Estoque - POO</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+
     <div class="container">
         <h1>Cadastro de Produtos</h1>
 
-        <!--Formulário de Entrada-->
+        <!-- Formulário de Entrada -->
         <form id="produto-form">
             <div class="form-group">
                 <label for="nome">Nome do Produto:</label>
-                <input type="text" id="nome" placeholder="Ex. Notebook" required />
-            </div>
-
-                <div class="form-group">
-                    <label for="nome">Preço (R$:)</label>
-                    <input type="number" id="preco" step="0.01" placeholder="Ex. 3500.00" required />
+                <input type="text" id="nome" placeholder="Ex. Notebook" required>
             </div>
 
             <div class="form-group">
-                    <label for="nome">Quantidade:</label>
-                    <input type="number" id="quantidade" placeholder="Ex. 5" required />
+                <label for="preco">Preço (R$):</label>
+                <input type="number" id="preco" min="0.01" step="0.01" placeholder="Ex. 3500.00" required>
             </div>
-            <button type="submit" class="btn primary"> Adicionar Produto</button>
+
+            <div class="form-group">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" min="1" step="1" placeholder="Ex. 5" required>
+            </div>
+
+            <button type="submit" class="btn primary" id="btn-salvar">
+                Adicionar Produto
+            </button>
+
+            <button type="button" id="cancelar-edicao" hidden>
+                Cancelar Edição
+            </button>
         </form>
 
-        <!--Cabeçalho de Ações e Resumo-->
+        <!-- Cabeçalho de Ações e Resumo -->
         <div class="resumo-container">
-            <h3 id="total-estoque">Total em Estoque: R$0,00</h3>
-            <button id="limpar-tabela" class="btn-danger">Limpar Tudo</button>
+            <h3 id="total-estoque">Total em Estoque: R$ 0,00</h3>
+            <button type="button" id="limpar-tabela" class="btn-danger">
+                Limpar Tudo
+            </button>
         </div>
 
-        <!--Tabela de Exibição-->
+        <!-- Tabela de Exibição -->
         <table id="tabela-produtos">
             <thead>
                 <tr>
@@ -46,12 +58,12 @@
                     <th>Ações</th>
                 </tr>
             </thead>
+
             <tbody>
-                <!--As linha da tabela serão inserida pelo Js-->
+                <!-- As linhas serão inseridas pelo JavaScript -->
             </tbody>
         </table>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
